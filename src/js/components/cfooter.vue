@@ -53,8 +53,8 @@
     {
         padding-top: 35px;
         padding-bottom: 15px;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 200px;
+        padding-right: 200px;
         position: relative;
     }
     .sitemap

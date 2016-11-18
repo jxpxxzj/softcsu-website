@@ -11,7 +11,6 @@ import footer from './components/cfooter.vue';
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(ElementUI)
-Vue.config.debug = true;
 
 Vue.component('navbar',navbar);
 Vue.component('cfooter',footer);

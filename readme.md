@@ -17,6 +17,6 @@ npm run build
 ```
 
 ##License
-[MIT](http://opensource.org/licenses/MIT)
+[MIT](http://opensource.org/licenses/MIT) <br>
 Copyright (c) 2016 Zijin Xiao
 

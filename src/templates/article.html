@@ -1,0 +1,9 @@
+<div>
+    <div class="container" v-loading.fullscreen.lock="loading" element-loading-text="拼命加载中">
+        <div v-if="post">
+            {{post.Title}}<br>
+            {{post.MetaData}}<br>
+            <div v-html="post.Content"></div>
+        </div>
+    </div>
+</div>

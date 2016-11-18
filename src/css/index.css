@@ -1,0 +1,103 @@
+/* Nav Bar Stylesheet */
+nav
+{
+    display: flex;
+    padding: 30px 20px 20px;
+}
+nav a:hover{
+    color: #1d8ce0;
+}
+.logo-container
+{
+    display: flex;
+    width: 100px;
+    height: 100px;
+}
+.logo-main
+{
+    background-image: url(../image/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+.nav-sec-left
+{
+    align-self: flex-start;
+}
+.nav-sec-center
+{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 20px;
+    width: 100px;
+}
+.nav-sec-right
+{
+    margin-left: auto;
+    text-align: right;
+}
+.nav-link
+{
+    color:#000;
+    font-size: 13px;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: color 80ms linear;
+}
+
+
+/* Slider Stylesheet */
+.slider-container
+{
+    display: flex;
+    height: 450px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12),0 0 6px 0 rgba(0,0,0,.04);
+}
+.slider
+{
+    background: url(../image/railway.jpg) no-repeat center center / cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Index Card Stylesheet */
+.list-item
+{
+    font-size: 14px;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.list-item:first-child {
+    border-top:0;
+}
+
+.list-group
+{
+    border-radius: 4px;
+    padding-left: 0;
+    list-style-type: disc;
+    margin-top:-15px;
+    margin-left:-15px;
+    margin-right: -15px;
+}
+.list-group a
+{
+    text-decoration: none;
+    transition: color 80ms linear;
+    color:#000;
+}
+.list-group a:hover
+{
+    color: #1d8ce0
+}
+

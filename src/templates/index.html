@@ -1,0 +1,128 @@
+<div>
+    <el-row>
+        <el-col :span="24">
+            <nav>
+                <div class="nav-sec-left">
+                    <router-link class="nav-link" :to="{ path:'/list/1018'}">学院概况</router-link>
+                    <router-link class="nav-link" :to="{ path:'/list/1024'}">本科生教学</router-link>
+                    <router-link class="nav-link" :to="{ path:'/list/1025'}">研究生教学</router-link>
+                    <router-link class="nav-link" :to="{ path:'/list/1026'}">科学研究</router-link>
+                    <router-link class="nav-link" :to="{ path:'/list/1028'}">实践教学</router-link>
+                    <router-link class="nav-link" :to="{ path:'/list/1029'}">学生工作</router-link>
+                </div>
+                <div class="nav-sec-center">
+                    <div class="logo-container">
+                        <div class="logo-main"></div>
+                    </div>
+                </div>
+                <div class="nav-sec-right">
+                    <a class="nav-link" href="http://gra.its.csu.edu.cn/zndxyjsgl/">研究生管理系统入口</a>
+                    <a class="nav-link" href="http://202.197.41.237/adj">调剂报名系统</a>
+                    <a class="nav-link" href="http://202.197.61.35/system/login.jsp">登录</a>
+                </div>
+            </nav>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="24">
+           <div class="slider-container">
+                <div class="slider">
+
+                </div>
+            </div>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="24">
+            <br>
+        </el-col>
+    </el-row>
+    <el-row :gutter="10">
+        <el-col :span="12">
+            <el-tabs type="border-card" style="width:100%;height:100%" @tab-click="col1_click" v-loading="loading_col1" element-loading-text="拼命加载中">
+                <el-tab-pane label="通知公告" name="1072">
+                    <ul class="list-group">
+                        <li v-for="item in data_col1" class="list-item">
+                            <router-link :to="{ path:'/article/' + active_col1 + '/' + item.aid}">
+                            {{item.Title}}
+                            </router-link>
+                            <el-tag type="primary" style="float: right;" >{{item.Date}}</el-tag>
+                        </li>
+                    </ul>
+                </el-tab-pane>
+                <el-tab-pane label="新闻动态" name="1073">
+                    <ul class="list-group">
+                        <li v-for="item in data_col1" class="list-item">
+                            <router-link :to="{ path:'/article/' + active_col1 + '/' + item.aid}">
+                                {{item.Title}}
+                            </router-link>
+                            <el-tag type="primary" style="float: right;" >
+                                {{item.Date}}
+                            </el-tag>
+                        </li>
+                    </ul>
+                </el-tab-pane>
+                <el-button style="float: right;" type="primary" @click.native="more_col1" size="mini">查看更多</el-button>
+            </el-tabs>
+        </el-col>
+        <el-col :span="12">
+            <el-tabs type="border-card" style="width:100%;height:100%" @tab-click="col2_click" v-loading="loading_col2" element-loading-text="拼命加载中">
+                <el-tab-pane label="校园生活" name="1074">
+                    <ul class="list-group">
+                        <li v-for="item in data_col2" class="list-item">
+                            <router-link :to="{ path:'/article/' + active_col2 + '/' + item.aid}">
+                                {{item.Title}}
+                            </router-link>
+                            <el-tag type="primary" style="float: right;" >
+                                {{item.Date}}
+                            </el-tag>
+                        </li>
+                    </ul>
+                </el-tab-pane>
+                <el-tab-pane label="院务公开" name="1075">
+                    <ul class="list-group">
+                        <li v-for="item in data_col2" class="list-item">
+                            <router-link :to="{ path:'/article/' + active_col2 + '/' + item.aid}">
+                                {{item.Title}}
+                            </router-link>
+                            <el-tag type="primary" style="float: right;" >
+                                {{item.Date}}
+                            </el-tag>
+                        </li>
+                    </ul>
+                </el-tab-pane>
+                <el-tab-pane label="招生专栏" name="1076">
+                    <ul class="list-group">
+                        <li v-for="item in data_col2" class="list-item">
+                            <router-link :to="{ path:'/article/' + active_col2 + '/' + item.aid}">
+                                {{item.Title}}
+                            </router-link>
+                            <el-tag type="primary" style="float: right;" >
+                                {{item.Date}}
+                            </el-tag>
+                        </li>
+                    </ul>
+                </el-tab-pane>
+                <el-tab-pane label="招聘专栏" name="1077">
+                    <ul class="list-group">
+                        <li v-for="item in data_col2" class="list-item">
+                            <router-link :to="{ path:'/article/' + active_col2 + '/' + item.aid}">
+                                {{item.Title}}
+                            </router-link>
+                            <el-tag type="primary" style="float: right;" >
+                                {{item.Date}}
+                            </el-tag>
+                        </li>
+                    </ul>
+                </el-tab-pane>
+                <el-button style="float: right;" type="primary" @click.native="more_col2" size="mini">查看更多</el-button>
+            </el-tabs>
+        </el-col>
+    </el-row>
+    <el-row :gutter="10">
+        <el-col :span="8">
+            
+        </el-col>
+        <el-col :span="16"></el-col>
+    </el-row>
+</div>

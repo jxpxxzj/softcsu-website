@@ -1,0 +1,29 @@
+/* Global Stylesheet */
+body
+{
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0)), url(../image/bg01.png);
+    background-color: #f7f7f7;
+    background-position: top left, top left;
+    background-repeat: repeat-x, repeat;
+    background-size: 100% 30em, auto;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif !important;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+a:active, a:hover, a:link, a:visited {
+    outline-style: none;
+}
+.container
+{
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom:60px;
+}
+.containe-footer
+{
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom:100px;
+}

@@ -39,7 +39,7 @@
 				<a href="http://my.csu.edu.cn">信息门户</a>&nbsp;|
 				<a href="http://mail.csu.edu.cn">邮件系统</a>&nbsp;|
 				<a href="http://software.csu.edu.cn/ssip/index.html">International Student</a></p>
-			<p class="footer-rel" style="color:#fff">Copyright © 2010-2016 School of Software Central South University</p></el-row>
+			<p class="footer-rel">© 2010-2016 School of Software, Central South University, All rights reserved.</p></el-row>
 	</footer>
 </template>
 <style>

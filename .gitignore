@@ -27,7 +27,7 @@ coverage
 build/Release
 
 # Compiled Website directory
-build
+dev
 dist
 
 # Dependency directories

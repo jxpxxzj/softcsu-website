@@ -5,7 +5,7 @@ module.exports = {
     entry: "./entry.js",
     output:{
         path: "./dist" ,
-        filename: "software.[hash].js"
+        filename: "software.js"
     },
     module:{
         loaders:[

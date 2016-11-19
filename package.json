@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
-    "build": "if not exist build mkdir build && del /q build\\*.* && webpack --progress --profile --colors --config webpack.release.config.js"
+    "build": "webpack --progress --profile --colors --config webpack.release.config.js"
   },
   "keywords": [
     "School",

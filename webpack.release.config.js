@@ -4,8 +4,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     entry: "./entry.js",
     output:{
-        path: "./build" ,
-        filename: "software.js"
+        path: "./dist" ,
+        filename: "software.[hash].js"
     },
     module:{
         loaders:[
@@ -50,9 +50,10 @@ module.exports = {
             cache:true,
             favicon: "./src/favicon.ico",
             template: "./src/index.html",
+            hash: true,
             minify:{
                 removeComments:true,
-                collapseWhitespace:false,
+                collapseWhitespace:true,
                 removeAttributeQuotes: true
             }
         }),

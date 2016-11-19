@@ -28,6 +28,7 @@ build/Release
 
 # Compiled Website directory
 build
+dist
 
 # Dependency directories
 node_modules

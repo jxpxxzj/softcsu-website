@@ -43,5 +43,9 @@
     "vue-router": "^2.0.2",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "postcss-loader": "^1.1.1",
+    "precss": "^1.4.0"
   }
 }

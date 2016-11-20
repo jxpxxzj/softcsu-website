@@ -45,6 +45,7 @@
 <style>
     footer
     {
+        position: absolute;
         background-color: #1D8CE0;
         width: 100%;
         bottom: 0px;

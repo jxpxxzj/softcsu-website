@@ -19,7 +19,7 @@ module.exports = {
   created(){
       this.fetchCol1Data();
       this.fetchCol2Data();
-      this.$nextTick(resizeFooter);
+      //this.$nextTick(resizeFooter);
   },
 
   methods:{

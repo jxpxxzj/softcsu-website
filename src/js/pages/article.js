@@ -13,8 +13,7 @@ module.exports = {
   created () {
       this.loading=true;
       this.fetchData();
-      this.$nextTick(resizeFooter);
-  },  
+   },  
   watch:{
     '$route' : 'fetchData'
   },
@@ -25,7 +24,6 @@ module.exports = {
             this.post = response.data;
             this.loading = false;
             this.error=false;
-            this.$nextTick(resizeFooter);
         })
         .catch(function(response)
         {

@@ -2,13 +2,13 @@
 	<div>
 		<el-row>
 			<el-col :span="24">
-				<div class="nav-container">
+				<div class="nav-container" v-on:mouseenter="togglePopup(true)" v-on:mouseleave="togglePopup(false)">
 					<div class="nav-body">
 						<div class="nav-col">
 							<div class="logo-container">
 								<router-link :to="{ path:'/'}" class="logo-main" style="width:100px"></router-link>
 							</div>
-							<div class="nav-group">
+							<!--<div class="nav-group">
 								<el-dropdown menu-align="start" @command="item_click">
 									<span class="el-dropdown-link">学院概况</span>
 									<el-dropdown-menu slot="dropdown">
@@ -82,16 +82,30 @@
 										<el-dropdown-item command="1055">规章制度</el-dropdown-item>
 										<el-dropdown-item command="1051">相关下载</el-dropdown-item></el-dropdown-menu>
 								</el-dropdown>
-							</div>
+							</div>!-->
 						</div>
 					</div>
 				</div>
 			</el-col>
+				<div class="nav-popup-container" v-show="popupshow" @mouseover="toggleFixed(true)" @mouseout="toggleFixed(false)">
+					<div class="nav-popup-box">
+						<div class="nav-popup-main">
+							Content
+						</div>
+						<span class="nav-popup-bar"></span>
+					</div>
+				</div>
 		</el-row>
 	</div>
 </template>
 <script>
 module.exports={ 
+	data(){
+		return {
+			popupshow : false,
+			fixed: false
+		}
+	},
  methods:
     {
         item_click : function(command){
@@ -100,6 +114,16 @@ module.exports={
             else
                 this.$router.push("/list/" + command);
         },
+		togglePopup(val) {
+			console.log(this.fixed);
+			if(!this.fixed)
+				this.popupshow = val;
+		},
+		toggleFixed(val) {
+			console.log("toggle");
+			this.fixed = val;
+		}
+
     }
   }
 </script>
@@ -145,5 +169,43 @@ a
     bottom:0;
     font-size: 20px !important;
     margin-right: 10px;
+}
+
+/* Nav Popup Box */
+.nav-popup-container
+{
+	z-index: 20 !important;
+	width:100%;
+	margin-top: 85px;
+}
+.nav-popup-box
+{
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	pointer-events: none;
+	background-color:#d3dce6;
+	height: 170px;
+}
+.nav-popup-main
+{
+	padding-left: 115px;
+	width:100%;
+}
+.nav-popup-bar
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	display: block;
+	background-color: #1d8ce0;
+	height: 3px;
+}
+
+.nav-popup-expand-transition
+{
+	transition: all .12s ease;
+
 }
 </style>

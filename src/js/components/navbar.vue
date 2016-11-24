@@ -100,7 +100,7 @@
 </template>
 <script>
 module.exports={ 
-	data(){
+	data: function(){
 		return {
 			popupshow : false,
 			fixed: false
@@ -108,18 +108,18 @@ module.exports={
 	},
  methods:
     {
-        item_click : function(command){
+        item_click: function(command){
             if(command == undefined) 
                 return;
             else
                 this.$router.push("/list/" + command);
         },
-		togglePopup(val) {
+		togglePopup: function(val) {
 			console.log(this.fixed);
 			if(!this.fixed)
 				this.popupshow = val;
 		},
-		toggleFixed(val) {
+		toggleFixed: function(val) {
 			console.log("toggle");
 			this.fixed = val;
 		}
@@ -206,6 +206,5 @@ a
 .nav-popup-expand-transition
 {
 	transition: all .12s ease;
-
 }
 </style>

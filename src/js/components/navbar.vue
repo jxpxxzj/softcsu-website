@@ -85,10 +85,10 @@
 							</div>!-->
 						</div>
 					</div>
-				</div>
+				</div>	
 			</el-col>
-				<div class="nav-popup-container" v-show="popupshow" @mouseover="toggleFixed(true)" @mouseout="toggleFixed(false)">
-					<div class="nav-popup-box">
+				<div class="nav-popup-container" v-show="popupshow" >
+					<div class="nav-popup-box" v-on:mouseover="toggleIn(true)" v-on:mouseleave="toggleIn(false)">
 						<div class="nav-popup-main">
 							Content
 						</div>
@@ -102,11 +102,11 @@
 module.exports={ 
 	data: function(){
 		return {
-			popupshow : false,
-			fixed: false
+			popupshow : true,
+			mousein : false
 		}
 	},
- methods:
+ methods:	
     {
         item_click: function(command){
             if(command == undefined) 
@@ -114,16 +114,13 @@ module.exports={
             else
                 this.$router.push("/list/" + command);
         },
-		togglePopup: function(val) {
-			console.log(this.fixed);
-			if(!this.fixed)
-				this.popupshow = val;
+		togglePopup: function(val){		
+			console.log("popup:" + val);
 		},
-		toggleFixed: function(val) {
-			console.log("toggle");
-			this.fixed = val;
+		toggleIn: function(val){
+			console.log("mousein");
+			mousein = val;
 		}
-
     }
   }
 </script>
@@ -176,7 +173,7 @@ a
 {
 	z-index: 20 !important;
 	width:100%;
-	margin-top: 85px;
+	margin-top: 90px;
 }
 .nav-popup-box
 {

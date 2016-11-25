@@ -20,5 +20,13 @@ var router = new VueRouter({
 });
 
 var App = new Vue({
-  router
+  router,
+  computed: {
+    marginClass: function () {
+      return {
+        'tiny-footer': this.$route.path != '/',
+        'huge-footer': this.$route.path == '/'
+      }
+    }
+  }
 }).$mount('#app');

@@ -9,8 +9,16 @@ body
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif !important;
     overflow: scroll;
     overflow-x: hidden;
-    margin-bottom: 220px;
 }
+
+.tiny-footer {
+	margin-bottom: 60px;
+}
+
+.huge-footer {
+	margin-bottom: 220px;
+}
+
 a:active, a:hover, a:link, a:visited {
     outline-style: none;
 }

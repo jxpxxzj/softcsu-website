@@ -12,7 +12,7 @@
                     </el-col>
                     <el-col :span="20">
                         <div v-if="!showsummary">
-                            {{content}}
+                            {{prevtext}}
                         </div>
                         <div v-else>
                             <div class="card-content" v-if="summary!=''">{{summary}}</div>
@@ -24,7 +24,7 @@
                 <el-row>
                     <el-col :span="24">
                         <div v-if="!showsummary">
-                            {{content}}
+                            {{prevtext}}
                         </div>
                         <div v-else>
                             <div class="card-content" v-if="summary!=''">{{summary}}</div>
@@ -39,7 +39,7 @@
         <div class="card-bottom">
             <time class="card-time">{{ date }}</time>
             <div class="card-tag" v-if="keywords!=''">
-                <span class="card-time">关键词:&nbsp;</span><el-tag type="primary" v-for="t in keywords.split(',')" style="margin-left:5px;margin-right:5px;">{{t}}</el-tag>
+                <el-tag type="primary" v-for="t in keywords.split(',')" style="margin-left:5px;margin-right:5px;">{{t}}</el-tag>
             </div>
             <el-button type="text" class="card-button" @click="full">查看全文</el-button>
         </div>
@@ -47,11 +47,11 @@
 </template>
 <script>
 module.exports = {
-    props:['title','date','aid','nid','previmg','keywords','summary'],
+    props:['title','date','aid','nid','previmg','keywords','summary','prevtext'],
     
     data: function(){
 		return {
-			showsummary:true,
+			showsummary:false,
             tags: null
 		}
 	},
@@ -71,7 +71,7 @@ module.exports = {
 }
 .card-container
 {
-
+    display: block;
 }
 .card-content
 {

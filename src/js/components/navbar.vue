@@ -24,7 +24,7 @@
 						<div class="nav-popup-main">
 							<div class="nav-popup-menu" v-for="item in navTree.Child">
 								<span class="nav-popup-menu-bar nav-popup-menu-bar-double" v-show="nav.Parent.Value == item.Value"></span>
-								<router-link :to="{ path: '/list/' + item.Key }" class="nav-popup-menu-head" href="/">{{item.Value}}</router-link>
+								<span class="nav-popup-menu-head">{{item.Value}}</span>
 								<div class="nav-popup-submenu-container">
 									<div v-if="item.Child != null">
 										<div v-for="item2 in item.Child">

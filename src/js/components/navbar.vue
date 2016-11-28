@@ -2,99 +2,41 @@
 	<div>
 		<el-row>
 			<el-col :span="24">
-				<div class="nav-container" v-on:mouseenter="togglePopup(true)" v-on:mouseleave="togglePopup(false)">
+				<div class="nav-container" v-on:mouseenter="togglePopup()" v-on:mouseleave="toggleTout()">
 					<div class="nav-body">
 						<div class="nav-col">
 							<div class="logo-container">
 								<router-link :to="{ path:'/'}" class="logo-main" style="width:100px"></router-link>
 							</div>
-							<!--<div class="nav-group">
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">学院概况</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1021">学院介绍</el-dropdown-item>
-										<a href="#">
-											<el-dropdown-item>学院领导</el-dropdown-item></a>
-										<el-dropdown-item command="1058">组织机构</el-dropdown-item>
-										<el-dropdown-item command="1059">教师信息</el-dropdown-item>
-										<el-dropdown-item command="1060">校企合作</el-dropdown-item>
-										<a href="#">
-											<el-dropdown-item>院长寄语</el-dropdown-item></a>
-									</el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">本科生教学</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1037">通知公告</el-dropdown-item>
-										<el-dropdown-item command="1038">专业介绍</el-dropdown-item>
-										<el-dropdown-item command="1039">培养方案</el-dropdown-item>
-										<el-dropdown-item command="1040">教学研究成果</el-dropdown-item></el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">研究生教学</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1041">通知公告</el-dropdown-item>
-										<el-dropdown-item command="1042">专业介绍</el-dropdown-item>
-										<el-dropdown-item command="1043">培养方案</el-dropdown-item>
-										<el-dropdown-item command="1045">招生章程</el-dropdown-item>
-										<el-dropdown-item command="1046">导师信息</el-dropdown-item>
-										<el-dropdown-item command="1081">下载专区</el-dropdown-item>
-										<a href="http://ssgrad.csu.edu.cn/">
-											<el-dropdown-item>研究生网站</el-dropdown-item></a>
-									</el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">科学研究</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1047">通知公告</el-dropdown-item>
-										<el-dropdown-item command="1092">科研成果</el-dropdown-item>
-										<el-dropdown-item command="1093">政策文件</el-dropdown-item>
-										<el-dropdown-item command="1094">下载专栏</el-dropdown-item></el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">实践教学</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1048">实习基地</el-dropdown-item>
-										<el-dropdown-item command="1049">实训管理</el-dropdown-item>
-										<el-dropdown-item command="1082">开放实验</el-dropdown-item>
-										<el-dropdown-item command="1083">实验安排</el-dropdown-item>
-										<el-dropdown-item command="1084">实验室管理</el-dropdown-item></el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">学生工作</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1050">党建工作</el-dropdown-item>
-										<el-dropdown-item command="1051">学工办</el-dropdown-item>
-										<el-dropdown-item command="1052">研工办</el-dropdown-item>
-										<el-dropdown-item command="1054">本科生机构</el-dropdown-item>
-										<el-dropdown-item command="1121">研究生机构</el-dropdown-item></el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">国际教育</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1085">About Us</el-dropdown-item>
-										<el-dropdown-item command="1086">Programs</el-dropdown-item>
-										<el-dropdown-item command="1087">Apply Now</el-dropdown-item></el-dropdown-menu>
-								</el-dropdown>
-								<el-dropdown menu-align="start" @command="item_click">
-									<span class="el-dropdown-link">信息服务</span>
-									<el-dropdown-menu slot="dropdown">
-										<el-dropdown-item command="1055">规章制度</el-dropdown-item>
-										<el-dropdown-item command="1051">相关下载</el-dropdown-item></el-dropdown-menu>
-								</el-dropdown>
-							</div>!-->
+							<div class="nav-group">
+								<el-breadcrumb separator=">">
+									<el-breadcrumb-item :to="{ path: '/' }" v-if="nav.Parent.Value != null">{{nav.Parent.Value}}</el-breadcrumb-item>
+									<el-breadcrumb-item>{{nav.Value}}</el-breadcrumb-item>
+								</el-breadcrumb>
+							</div>
 						</div>
 					</div>
 				</div>	
 			</el-col>
+			<transition name="slide">
 				<div class="nav-popup-container" v-show="popupshow" >
 					<div class="nav-popup-box" v-on:mouseover="toggleIn(true)" v-on:mouseleave="toggleIn(false)">
 						<div class="nav-popup-main">
-							Content
-						</div>
+							<div class="nav-popup-menu" v-for="item in navTree.Child">
+								<span class="nav-popup-menu-bar nav-popup-menu-bar-double" v-show="nav.Parent.Value == item.Value"></span>
+								<router-link :to="{ path: '/list/' + item.Key }" class="nav-popup-menu-head" href="/">{{item.Value}}</router-link>
+								<div class="nav-popup-submenu-container">
+									<div v-if="item.Child != null">
+										<div v-for="item2 in item.Child">
+											<router-link v-if="item2.Key!=null" :to="{ path: '/list/' + item2.Key}" class="nav-popup-submenu-link">{{item2.Value}}</router-link>
+										</div>
+									</div>
+								</div>
+							</div>
 						<span class="nav-popup-bar"></span>
 					</div>
 				</div>
+			</transition>
 		</el-row>
 	</div>
 </template>
@@ -102,25 +44,76 @@
 module.exports={ 
 	data: function(){
 		return {
-			popupshow : true,
-			mousein : false
+			popupshow : false,
+			mousein : false,
+			nav:{
+				
+			},
+			navloaded:false,
+			navTree:null,
+			apiUrl: "http://119.29.209.17/oaapi/Software/GetNav",
+			r:this.$route.path,
 		}
 	},
- methods:	
+	created:function()
+	{
+		this.get_nav();
+		this.update_nav();	
+	},
+	updated: function()
+	{
+		this.r=this.$route.path;
+	},
+	watch:
+	{
+		r : function()
+		{
+			this.update_nav();
+		}
+	},
+ 	methods:	
     {
+		get_nav: function()
+		{
+			this.$http.jsonp("http://119.29.209.17/oaapi/Software/GetNavTree")
+			.then(function(response) {
+				this.navTree = response.data;
+			})
+			.catch(function(response)
+			{
+				console.log(response);
+			})
+		},
+		update_nav: function()
+		{
+			this.$http.jsonp(this.apiUrl, {params: { 'nid': this.$route.params.nid}})
+			.then(function(response){
+				this.nav = response.data;
+				this.navloaded=true;
+			})
+			.catch(function(response)
+			{
+				console.log(response);
+			})
+		},
         item_click: function(command){
             if(command == undefined) 
                 return;
             else
                 this.$router.push("/list/" + command);
         },
-		togglePopup: function(val){		
-			console.log("popup:" + val);
+		togglePopup: function(){		
+			this.popupshow = true;
+		},
+		toggleTout: function(){
+			if(!this.mousein)
+				setTimeout(function() { this.popupshow = false; },200);
 		},
 		toggleIn: function(val){
-			console.log("mousein");
-			mousein = val;
-		}
+			this.mousein = val;
+			if(!val)
+				this.popupshow = false;
+		},
     }
   }
 </script>
@@ -155,8 +148,8 @@ a
     padding: 35px 10px;
     flex: 1 0 auto;
     align-items: flex-end;
-    color: #fff;
-    font-weight: 300;
+    color: #fff !important;
+    font-weight: 300 !important;
     height:70px;
 }
 .el-dropdown
@@ -167,22 +160,33 @@ a
     font-size: 20px !important;
     margin-right: 10px;
 }
-
+.el-breadcrumb__item__inner, .el-breadcrumb__item__inner a
+{
+	color: #fff !important;
+    font-weight: 300;
+	font-size:20px;
+}
+.el-breadcrumb__separator {
+    margin: 0 8px;
+    color: #c0ccda;
+	font-size: 18px;
+}
 /* Nav Popup Box */
 .nav-popup-container
 {
 	z-index: 20 !important;
 	width:100%;
 	margin-top: 90px;
+	display: flex;
+	position: absolute;
 }
 .nav-popup-box
 {
 	position: absolute;
 	overflow: hidden;
 	width: 100%;
-	pointer-events: none;
 	background-color:#d3dce6;
-	height: 170px;
+	height: 200px;
 }
 .nav-popup-main
 {
@@ -200,8 +204,70 @@ a
 	height: 3px;
 }
 
-.nav-popup-expand-transition
+.nav-popup-menu
 {
-	transition: all .12s ease;
+	display:inline-block;
+	margin-top: 6px;;
+	vertical-align:top;
+}
+.nav-popup-menu-head
+{
+	color: #000;
+    display: flex;
+    padding: 5px 15px 10px;
+    flex: none;
+	text-align: center;
+}
+.nav-popup-menu-bar
+{
+	display: block;
+    width: 100%;
+    background-color: #1d8ce0;
+}
+.nav-popup-menu-bar-double
+{
+	height: 6px;
+	margin-top: -6px;
+}
+.nav-popup-submenu-container
+{
+	margin-top: 0;
+	width: 90px;
+    display: block;
+    margin-left: 15px;
+}
+.nav-popup-submenu-link
+{
+	color: #475669 !important;
+    font-size: 14px;
+    margin: 4px 0;
+    display: flex;
+	transition: color 80ms linear;
+}
+.nav-popup-submenu-link:hover
+{
+	color:#1d8ce0 !important;
+}
+.slide-enter-active {
+  animation: bounce-in .12s;
+}
+.slide-leave-active {
+  animation: bounce-out .12s;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
 }
 </style>

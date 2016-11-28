@@ -7,22 +7,22 @@
 					<li class="sitemap-item">
 						<router-link :to="{ path:'/'}">首页</router-link></li>
 					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1018'}">学院概况</router-link></li>
+						<router-link :to="{ path:'/list/1018/0'}">学院概况</router-link></li>
 					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1029'}">学生工作</router-link></li>
+						<router-link :to="{ path:'/list/1029/0'}">学生工作</router-link></li>
 				</ul>
 			</el-col>
 			<el-col :span="8">
 				<ul class="sitemap">
 					<li class="sitemap-header">教育培养</li>
 					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1024'}">本科生教学</router-link></li>
+						<router-link :to="{ path:'/list/1024/0'}">本科生教学</router-link></li>
 					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1025'}">研究生教学</router-link></li>
+						<router-link :to="{ path:'/list/1025/0'}">研究生教学</router-link></li>
 					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1026'}">科学研究</router-link></li>
+						<router-link :to="{ path:'/list/1026/0'}">科学研究</router-link></li>
 					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1028'}">实践教学</router-link></li>
+						<router-link :to="{ path:'/list/1028/0'}">实践教学</router-link></li>
 				</ul>
 			</el-col>
 			<el-col :span="8">

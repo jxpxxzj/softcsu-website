@@ -42,7 +42,7 @@ module.exports = {
     resolve:{
         extensions: ['', '.js', '.css', '.scss','.vue'],
         alias: {
-            vue : 'vue/dist/vue.js'
+            vue : 'vue/dist/vue.min.js'
         }
     },
     plugins: [       

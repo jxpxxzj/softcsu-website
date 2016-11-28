@@ -29,7 +29,6 @@ module.exports = {
         .then((response) => { 
             this.data_col1 = response.data;
             this.loading_col1 = false;
-            this.$nextTick(resizeFooter);
         })
         .catch(function(response)
         {

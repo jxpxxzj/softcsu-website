@@ -10,6 +10,15 @@ body
     overflow: scroll;
     overflow-x: hidden;
 }
+
+.tiny-footer {
+	margin-bottom: 60px;
+}
+
+.huge-footer {
+	margin-bottom: 220px;
+}
+
 a:active, a:hover, a:link, a:visited {
     outline-style: none;
 }

@@ -15,7 +15,7 @@
         <title>2016年中南大学软件学院网页设计大赛</title>
     </head>
     <body>
-        <div id="app">
+        <div id="app" :class="marginClass">
             <navbar v-if="this.$route.path != '/'"></navbar>
             <div class="container">
                 <router-view></router-view>

@@ -2,7 +2,7 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix">
             <span>{{title}}</span>
-            <el-switch v-model="showsummary" style="float:right" on-text="摘要" off-text="正文" on-color="#20a0ff" off-color="#20a0ff"> </el-switch>
+            <el-switch v-if="showswitch" v-model="showsummary" style="float:right" on-text="摘要" off-text="正文" on-color="#20a0ff" off-color="#20a0ff"> </el-switch>
         </div>
         <div class="card-container">
             <div v-if="previmg != ''">
@@ -41,13 +41,13 @@
             <div class="card-tag" v-if="keywords!=''">
                 <el-tag type="primary" v-for="t in keywords.split(',')" style="margin-left:5px;margin-right:5px;">{{t}}</el-tag>
             </div>
-            <el-button type="text" class="card-button" @click="full">查看全文</el-button>
+            <el-button type="text" class="card-button" @click="full">{{btntext}}</el-button>
         </div>
     </el-card>
 </template>
 <script>
 module.exports = {
-    props:['title','date','aid','nid','previmg','keywords','summary','prevtext'],
+    props:['title','date','aid','nid','previmg','keywords','summary','prevtext','showswitch','btntext'],
     
     data: function(){
 		return {
@@ -60,6 +60,7 @@ module.exports = {
         full:function()
         {
             this.$router.push("/article/" + this.nid + '/' + this.aid);
+            scrollTo(0,100);
         }
     }
 };
@@ -91,6 +92,7 @@ module.exports = {
 {
     font-size: 13px;
     color: #999;
+    margin-top: 10px;
 }
 .card-button 
 {

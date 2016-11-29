@@ -1,9 +1,56 @@
 <div>
     <div class="container" v-loading.fullscreen.lock="loading" element-loading-text="拼命加载中">
-        <div v-if="post">
-            {{post.Title}}<br>
-            {{post.MetaData}}<br>
-            <div v-html="post.Content"></div>
-        </div>
+        <el-row><el-col>&nbsp;</el-col></el-row>
+        <el-row :gutter="20">
+            <el-col :span="6">
+                <el-menu :router=true :default-active="'/list/' + $route.params.nid">
+                    <el-menu-item v-for="item in navs" :index="'/list/' + item.Key" v-if="item.Key!=null">{{item.Value}}</el-menu-item>
+                </el-menu>
+            </el-col>
+            <el-col :span="18" v-loading="loading" element-loading-text="拼命加载中">
+                <el-row>
+                    <div v-if="post">
+                        <el-card>
+                            <div slot="header" class="clearfix">
+                                <span>{{post.Title}}<br><time class="card-time">{{post.MetaData}}</time></span>            
+                            </div>
+                            <div class="card-container">                   
+                                <div v-html="post.Content"></div>
+                            </div>
+                        </el-card>
+                    </div>
+                </el-row>
+                <el-row :gutter="10">
+                    <el-col :span="12" >
+                        <acard v-if="post.Prev!=null"
+                        :date="post.Prev.Date" 
+                        :summary="post.Prev.Summary" 
+                        :previmg="post.Prev.PrevImg" 
+                        :title="post.Prev.Title"
+                        :keywords="post.Prev.Keywords" 
+                        :nid="post.Prev.nid" 
+                        :aid="post.Prev.aid" 
+                        :prevtext="post.Prev.PrevText + '...'"
+                        :showswitch=false
+                        btntext="上一篇"
+                        ></acard>
+                    </el-col>
+                    <el-col :span="12">
+                        <acard v-if="post.Next!=null"
+                        :date="post.Next.Date" 
+                        :summary="post.Next.Summary" 
+                        :previmg="post.Next.PrevImg" 
+                        :title="post.Next.Title"
+                        :keywords="post.Next.Keywords" 
+                        :nid="post.Next.nid" 
+                        :aid="post.Next.aid" 
+                        :prevtext="post.Next.PrevText + '...'"
+                        :showswitch=false
+                        btntext="下一篇"
+                        ></acard>
+                    </el-col>
+                </el-row>
+            </el-col>
+        </el-row>  
     </div>
 </div>

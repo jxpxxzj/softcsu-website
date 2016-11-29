@@ -17,16 +17,18 @@
             </el-menu>
         </el-col>
         <el-col :span="18" v-loading="a_loading" element-loading-text="拼命加载中">
-        <acard v-for="a in articles"
-        :date="a.Date" 
-        :summary="a.Summary" 
-        :previmg="a.PrevImg" 
-        :title="a.Title"
-        :keywords="a.Keywords" 
-        :nid="a.nid" 
-        :aid="a.aid" 
-        :prevtext="a.PrevText + '...'"
-        ></acard>
+            <acard v-for="a in articles"
+            :date="a.Date" 
+            :summary="a.Summary" 
+            :previmg="a.PrevImg" 
+            :title="a.Title"
+            :keywords="a.Keywords" 
+            :nid="a.nid" 
+            :aid="a.aid" 
+            :prevtext="a.PrevText + '...'"
+            btntext="查看全文"
+            :showswitch=true         
+            ></acard>
         </el-col>
     </el-row>
     <el-row :gutter="10">

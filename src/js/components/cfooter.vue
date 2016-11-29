@@ -2,35 +2,19 @@
 	<footer id="footer">
 		<el-row class="footer-item" :gutter="10" v-if="this.$route.path == '/'">
 			<el-col :span="8">
-				<ul class="sitemap">
-					<li class="sitemap-header">学院工作</li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/'}">首页</router-link></li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1018/0'}">学院概况</router-link></li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1029/0'}">学生工作</router-link></li>
-				</ul>
+				<div class="footer-logo"></div><br>
 			</el-col>
 			<el-col :span="8">
-				<ul class="sitemap">
-					<li class="sitemap-header">教育培养</li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1024/0'}">本科生教学</router-link></li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1025/0'}">研究生教学</router-link></li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1026/0'}">科学研究</router-link></li>
-					<li class="sitemap-item">
-						<router-link :to="{ path:'/list/1028/0'}">实践教学</router-link></li>
-				</ul>
+				<div class="footer-qrcode"></div>
+                <div class="sitemap-item">软件学院官方微信订阅号</div>
 			</el-col>
 			<el-col :span="8">
 				<ul class="sitemap">
 					<li class="sitemap-header">联系方式</li>
 					<li class="sitemap-item">地址: 湖南省长沙市中南大学铁道校区</li>
 					<li class="sitemap-item">邮编: 410075</li>
-					<li class="sitemap-item">电话: 0731-82656877</li></ul>
+					<li class="sitemap-item">电话: 0731-82656877</li>
+                </ul>
 			</el-col>
 		</el-row>
 		<el-row>
@@ -70,6 +54,7 @@
         font-weight: 700;
         font-size: 13px;
         font-weight: bold;
+        color:#fff;
     }
     .sitemap-item
     {
@@ -96,5 +81,21 @@
         text-align: center;
         font-size: 12px;
         color: #ffffff;
+    }
+    .footer-qrcode
+    {
+        background-image: url(../../image/wechat_qrcode.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 130px;
+        height:130px;
+    }
+    .footer-logo
+    {
+        background-image: url(../../image/school.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 130px;
+        height:130px;
     }
 </style>

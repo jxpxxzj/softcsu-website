@@ -6,12 +6,14 @@ module.exports = {
     apiUrl: "http://119.29.209.17/oaapi/Software/GetArticle",
     post: null,
     error : null,
-    loading : false
+    loading : false,
+    navs:null
     }
   },
 
   created () {
       this.loading=true;
+      this.getNav();
       this.fetchData();
    },  
   watch:{
@@ -30,6 +32,18 @@ module.exports = {
             this.error = true;
             console.log(response);
         })
-      }
+      },
+      getNav: function()
+        {
+            this.$http.jsonp('http://119.29.209.17/oaapi/Software/GetCurNavList', {params: { 'nid': this.$route.params.nid}})
+            .then((response) => { 
+                this.navs= response.data;
+                this.navName = this.getName(this.$route.params.nid);
+            })
+            .catch(function(response)
+            {
+                console.log(response);
+            })
+        },
   }
 };

@@ -1,0 +1,16 @@
+.nf-text
+{
+    text-align: center;
+    line-height: 1.1;
+    margin: 0 0 20px;
+}
+.nf-header
+{
+    color:#1d8ce0;   
+    font-size:30px;
+    font-weight: 400;  
+}
+.nf-btn
+{
+    text-align: center;
+}

@@ -53,16 +53,18 @@ module.exports={
 			navTree:null,
 			apiUrl: "http://119.29.209.17/oaapi/Software/GetNav",
 			r:this.$route.path,
+			notFoundMode: this.$route.name == "notFound"
 		}
 	},
 	created:function()
 	{
-		this.get_nav();
-		this.update_nav();	
+		this.get_nav();				
+		this.update_nav();		
 	},
 	updated: function()
 	{
 		this.r=this.$route.path;
+		this.notFoundMode = this.$route.name == "notFound";
 	},
 	watch:
 	{
@@ -86,6 +88,16 @@ module.exports={
 		},
 		update_nav: function()
 		{
+			if(this.notFoundMode)
+			{
+				this.nav = {
+					Parent:{
+						Value:"404"
+					},
+					Value:"Not Found"
+				}
+				return;
+			}
 			this.$http.jsonp(this.apiUrl, {params: { 'nid': this.$route.params.nid}})
 			.then(function(response){
 				this.nav = response.data;

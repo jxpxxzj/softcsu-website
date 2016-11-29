@@ -1,5 +1,4 @@
-<div>
-    <div v-loading.fullscreen.lock="loading" element-loading-text="拼命加载中">
+    <div>
         <el-row><el-col>&nbsp;</el-col></el-row>
         <el-row :gutter="20">
             <el-col :span="6">
@@ -12,7 +11,15 @@
                     <div v-if="post">
                         <el-card>
                             <div slot="header" class="clearfix">
-                                <span>{{post.Title}}<br><time class="card-time">{{post.MetaData}}</time></span>            
+                                <span>{{post.Title}}<br><time class="card-time">{{post.MetaData}}</time></span>
+                                <span>
+                                    <div class="icon-group">
+                                        <a :href="'http://www.jiathis.com/send/?webid=cqq&url=http://software.csu.edu.cn/info/' + post.nid + '/' + post.aid + '.htm&title=' + post.Title" target="_blank"><div class="icon icon-qq"></div></a>                               
+                                        <a :href="'http://www.jiathis.com/send/?webid=weixin&url=http://software.csu.edu.cn/info/' + post.nid + '/' + post.aid + '.htm&title=' + post.Title" target="_blank"><div class="icon icon-wechat"></div></a>
+                                        <a :href="'http://www.jiathis.com/send/?webid=qzone&url=http://software.csu.edu.cn/info/' + post.nid + '/' + post.aid + '.htm&title=' + post.Title" target="_blank"><div class="icon icon-qzone"></div></a>
+                                        <a :href="'http://www.jiathis.com/send/?webid=tsina&url=http://software.csu.edu.cn/info/' + post.nid + '/' + post.aid + '.htm&title=' + post.Title" target="_blank"><div class="icon icon-weibo"></div></a>
+                                    </div>
+                                </span>            
                             </div>
                             <div class="card-container">                   
                                 <div v-html="post.Content"></div>
@@ -53,4 +60,3 @@
             </el-col>
         </el-row>  
     </div>
-</div>

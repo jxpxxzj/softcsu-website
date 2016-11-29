@@ -25,3 +25,44 @@
 {
     width:100%;
 }
+.icon
+{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height:20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.icon-group
+{
+    display: inline-flex;
+    position: absolute;
+    right: 10px;
+
+}
+.icon-qq
+{
+    background-image: url(../image/qq.png);
+}
+.icon-wechat
+{
+    background-image:url(../image/wechat.png);
+}
+.icon-qzone
+{
+    background-image: url(../image/qzone.png);
+}
+.icon-weibo
+{
+    background-image: url(../image/weibo.png);
+}
+.i-s
+{
+    background-image: url(../image/share.png);
+}
+
+.el-tooltip__popper.is-light {
+    background: #fff;
+    border: 1px solid #1d8ce0;
+}

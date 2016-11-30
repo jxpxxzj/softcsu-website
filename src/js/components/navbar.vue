@@ -46,9 +46,7 @@ module.exports={
 		return {
 			popupshow : false,
 			mousein : false,
-			nav:{
-				
-			},
+			nav:null,
 			navloaded:false,
 			navTree:null,
 			apiUrl: "http://119.29.209.17/oaapi/Software/GetNav",

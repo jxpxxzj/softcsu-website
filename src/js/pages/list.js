@@ -24,7 +24,7 @@ module.exports = {
     },
     watch:
     {
-        r: function()
+        r()
         {
             this.page = 1;
             this.getCount();
@@ -34,7 +34,7 @@ module.exports = {
     },
     methods:
     {
-        getNav: function()
+        getNav()
         {
             this.$http.jsonp('http://119.29.209.17/oaapi/Software/GetCurNavList', {params: { 'nid': this.$route.params.nid}})
             .then((response) => { 
@@ -46,7 +46,7 @@ module.exports = {
                 console.log(response);
             })
         },
-        getName: function(nid)
+        getName(nid)
         {
             for(var i in this.navs)
             {
@@ -56,18 +56,18 @@ module.exports = {
             }
                   
         },
-        getCount: function()
+        getCount()
         {
             this.$http.jsonp('http://119.29.209.17/oaapi/Software/GetArticleCount', {params: { 'nid': this.$route.params.nid}})
             .then((response) => { 
                 this.a_count= response.data;
             })
-            .catch(function(response)
+            .catch((response) =>
             {
                 console.log(response);
             })
         },
-        getArticle: function(page)
+        getArticle(page)
         {
             this.a_loading=true;
             this.$http.jsonp('http://119.29.209.17/oaapi/Software/GetArticleList', {params: { 'nid': this.$route.params.nid,'page': page}})
@@ -75,12 +75,12 @@ module.exports = {
                 this.articles = response.data;
                 this.a_loading=false;
             })
-            .catch(function(response)
+            .catch((response) =>
             {
                 console.log(response);
             })
         },
-        handleCurrentChange: function(val)
+        handleCurrentChange(val)
         {
             this.getArticle(val);
             scrollTo(0,310);

@@ -44,7 +44,7 @@ module.exports = {
             this.loading_col2 = false;
             this.$nextTick(resizeFooter);
         })
-        .catch(function(response)
+        .catch((response) =>
         {
             console.log(response);
         })

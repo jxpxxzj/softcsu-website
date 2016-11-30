@@ -32,9 +32,6 @@
                     </el-col>
                 </el-row>
             </div>
-            <el-row>
-                <el-col></el-col>
-            </el-row>
         </div>
         <div class="card-bottom">
             <time class="card-time">{{ date }}</time>
